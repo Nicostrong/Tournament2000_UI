@@ -29,6 +29,7 @@ ui_*.h
 *.jsc
 Makefile*
 *build-*
+build-*
 build/
 *.qm
 *.prl
@@ -54,3 +55,6 @@ compile_commands.json
 *creator.user*
 
 *_qmlcache.qrc
+
+# fichier autogen
+*_autogen/
