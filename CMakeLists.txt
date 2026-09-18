@@ -68,6 +68,7 @@ set(GUI_SOURCES
 	gui/mainwindow.cpp
 	gui/mainwindow.h
 	gui/mainwindow.ui
+	gui/resources.qrc
 )
 
 set(PROJECT_SOURCES

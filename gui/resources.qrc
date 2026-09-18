@@ -1,0 +1,5 @@
+<RCC>
+	<qresource prefix="/">
+		<file>Tournament2000.png</file>
+	</qresource>
+</RCC>
