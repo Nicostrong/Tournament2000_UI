@@ -58,3 +58,9 @@ compile_commands.json
 
 # fichier autogen
 *_autogen/
+
+# MacOS files
+.DS_Store
+
+# help files
+*.xml

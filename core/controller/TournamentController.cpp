@@ -48,22 +48,16 @@ TournamentController::~TournamentController() = default;
 TournamentController::State			TournamentController::handleSettingPhase()
 {
 	vString errors;
-	
-	while (g_running)
-	{
-		//SettingsCLI::setupWizard(*this->_settings);
-		
-		if (!g_running)
-			return (State::EXIT);
 
-		if (SettingsChecker::isValid(*this->_settings, errors))
-		{
-			this->_playerManager = std::make_unique<PlayerManager>(*this->_settings);
-			return (State::PLAYER);
-		}
 
-		std::cout << "Configuration invalide. Veuillez corriger les erreurs.\n";
-	}
+    if (SettingsChecker::isValid(*this->_settings, errors))
+    {
+        this->_playerManager = std::make_unique<PlayerManager>(*this->_settings);
+        return (State::PLAYER);
+    }
+
+    std::cout << "Configuration invalide. Veuillez corriger les erreurs.\n";
+
 
 	return (State::EXIT);
 }
@@ -71,19 +65,14 @@ TournamentController::State			TournamentController::handleSettingPhase()
 TournamentController::State			TournamentController::handlePlayerPhase()
 {
 	if (!this->_playerManager)
-		return (State::EXIT);
-
-	//PlayerCLI::handleMenuPlayer(*this->_playerManager, *this->_settings);
-	
-	if (!g_running)
-		return (State::EXIT);
+        return (State::EXIT);
 
 	return (State::INIT_TOURNAMENT);
 }
 
 TournamentController::State			TournamentController::handleInitPhase()
 {
-	if (!g_running || !this->_playerManager)
+    if (this->_playerManager)
 		return (State::EXIT);
 
 	this->_tournament = std::make_unique<Tournament>(*this->_settings, *this->_playerManager);
@@ -100,10 +89,8 @@ TournamentController::State			TournamentController::handleInitPhase()
 
 TournamentController::State			TournamentController::handleRunPhase()
 {
-	if (!g_running || !this->_tournament)
+    if (!this->_tournament)
 		return (State::EXIT);
-
-	//TournamentCLI::handleMenuTournament(*this->_tournament);
 
 	return (State::EXIT);
 }
@@ -116,7 +103,7 @@ void				TournamentController::run()
 {
 	State currentState = State::SETTING;
 
-	while (g_running && currentState != State::EXIT)
+    while (currentState != State::EXIT)
 	{
 		switch (currentState)
 		{

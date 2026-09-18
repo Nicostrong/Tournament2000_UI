@@ -1,10 +1,8 @@
-#include "../includes/view/mainwindow.h"
+#include "gui/mainwindow.h"
 
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
-
-inline volatile std::sig_atomic_t	g_running = -1;
 
 int main(int argc, char *argv[])
 {
