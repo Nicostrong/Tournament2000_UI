@@ -65,10 +65,13 @@ set(CORE_SOURCES
 )
 
 set(GUI_SOURCES
+	gui/resources.qrc
 	gui/mainwindow.cpp
 	gui/mainwindow.h
 	gui/mainwindow.ui
-	gui/resources.qrc
+	gui/menuside.cpp
+	gui/menuside.h
+	gui/menuside.ui
 )
 
 set(PROJECT_SOURCES
