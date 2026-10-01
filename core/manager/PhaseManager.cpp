@@ -108,12 +108,12 @@ pMatch				PhaseManager::findCurrentActiveMatch(pTeam team) const
 
 	std::vector<cpPhase> bracketPhases
 	{
-	this->_final.get(),
-	this->_thirdPlace.get(),
-	this->_semis.get(),
-	this->_quarters.get(),
-	this->_eighth.get(),
-	this->_sixteenths.get()
+		this->_final.get(),
+		this->_thirdPlace.get(),
+		this->_semis.get(),
+		this->_quarters.get(),
+		this->_eighth.get(),
+		this->_sixteenths.get()
 	};
 
 	for (cpPhase phase : bracketPhases)
@@ -151,7 +151,7 @@ pMatch				PhaseManager::findPreviousMatch(pTeam team) const
 
 		for (pMatch match : phase->getMatches())
 			if (match && match->isFinished() && (match->getTeamA() == team || match->getTeamB() == team))
-			return (match);
+				return (match);
 	}
 
 	return (nullptr);

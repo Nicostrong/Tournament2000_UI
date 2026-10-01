@@ -1,26 +1,30 @@
 #pragma once
-#include <QMainWindow>
-#include <csignal>
+
+# include <QMainWindow>
+# include <csignal>
 
 QT_BEGIN_NAMESPACE
 
-namespace   Ui
+namespace	Ui
 {
-    class   MainWindow;
+	class	MainWindow;
 }
 
 QT_END_NAMESPACE
 
-class   MainWindow : public QMainWindow
+class	MainWindow : public QMainWindow
 {
-    Q_OBJECT
+	Q_OBJECT
 
-    public:
+	public:
 
-        MainWindow(QWidget *parent = nullptr);
-        ~MainWindow();
+		MainWindow(QWidget *parent = nullptr);
+		~MainWindow();
 
-    private:
+	private:
 
-        Ui::MainWindow *ui;
+		Ui::MainWindow		*ui;
+
+		void				connectMenuSide();
+
 };
