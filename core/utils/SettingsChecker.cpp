@@ -110,7 +110,7 @@ bool                SettingsChecker::isValid(Settings& settings, vString& errors
     addErrorIf(settings.getDiffPointsToWin() <= 0, E_DIFFSCORE, errors);
     addErrorIf(!isInList(settings.getNbSetPlayedPools(), allowedNbSetToPlay), E_NBSETPOOL, errors);
     addErrorIf(!isInList(settings.getNbSetPlayedSixteenth(), allowedNbSetToPlay), E_NBSETSIXTEENTH, errors);
-    addErrorIf(!isInList(settings.getNbSetPlayedHeigth(), allowedNbSetToPlay), E_NBSETHEIGHT, errors);
+	addErrorIf(!isInList(settings.getNbSetPlayedEigth(), allowedNbSetToPlay), E_NBSETEIGHT, errors);
     addErrorIf(!isInList(settings.getNbSetPlayedQuarters(), allowedNbSetToPlay), E_NBSETQUARTER, errors);
     addErrorIf(!isInList(settings.getNbSetPlayedSemis(), allowedNbSetToPlay), E_NBSETSEMI, errors);
     addErrorIf(!isInList(settings.getNbSetPlayedFinal(), allowedNbSetToPlay), E_NBSETFINAL, errors);

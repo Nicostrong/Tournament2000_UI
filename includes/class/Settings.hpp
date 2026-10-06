@@ -47,7 +47,7 @@ class				Settings
 		int							_diffPointsToWin;
 		int							_nbSetPlayedPools;
 		int							_nbSetPlayedSixteenth;
-		int							_nbSetPlayedHeigth;
+		int							_nbSetPlayedEigth;
 		int							_nbSetPlayedQuarters;
 		int							_nbSetPlayedSemis;
 		int							_nbSetPlayedFinal;
@@ -95,7 +95,7 @@ class				Settings
 		[[nodiscard]]
 		int							getNbSetPlayedSixteenth() const;
 		[[nodiscard]]
-		int							getNbSetPlayedHeigth() const;
+		int							getNbSetPlayedEigth() const;
 		[[nodiscard]]
 		int							getNbSetPlayedQuarters() const;
 		[[nodiscard]]
@@ -131,7 +131,7 @@ class				Settings
 
 		void						setNbSetPlayedPools(int value);
 		void						setNbSetPlayedSixteenth(int value);
-		void						setNbSetPlayedHeigth(int value);
+		void						setNbSetPlayedEigth(int value);
 		void						setNbSetPlayedQuarters(int value);
 		void						setNbSetPlayedSemis(int value);
 		void						setNbSetPlayedFinal(int value);

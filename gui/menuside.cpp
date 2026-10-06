@@ -28,7 +28,7 @@ MenuSide::MenuSide(QWidget *parent): QWidget(parent), ui(std::make_unique<Ui::Me
 MenuSide::~MenuSide() = default;
 
 
-void    MenuSide::initMenuSide()
+void		MenuSide::initMenuSide()
 {
 	ui->SettingsBtn->setEnabled(true);
 	ui->PlayersBtn->setEnabled(false);
@@ -44,3 +44,15 @@ void    MenuSide::initMenuSide()
 	ui->ShowBtn->setEnabled(false);
 	ui->QuitBtn->setEnabled(true);
 }
+
+void		MenuSide::setActivePlayersBtn(bool value)	{	this->ui->PlayersBtn->setEnabled(value);	}
+void		MenuSide::setActiveTeamsBtn(bool value)		{	this->ui->TeamsBtn->setEnabled(value);		}
+void		MenuSide::setActivePoolsBtn(bool value)		{	this->ui->PoolsBtn->setEnabled(value);		}
+void		MenuSide::setActiveSixteenthBtn(bool value)	{	this->ui->SixteenthBtn->setEnabled(value);	}
+void		MenuSide::setActiveEighthBtn(bool value)	{	this->ui->EighthBtn->setEnabled(value);		}
+void		MenuSide::setActiveQuarterBtn(bool value)	{	this->ui->QuarterBtn->setEnabled(value);	}
+void		MenuSide::setActiveSemiBtn(bool value)		{	this->ui->SemiBtn->setEnabled(value);		}
+void		MenuSide::setActiveThirdBtn(bool value)		{	this->ui->ThirdBtn->setEnabled(value);		}
+void		MenuSide::setActiveFinalBtn(bool value)		{	this->ui->FinalBtn->setEnabled(value);		}
+void		MenuSide::setActiveExportBtn(bool value)	{	this->ui->ExportBtn->setEnabled(value);		}
+void		MenuSide::setActiveShowBtn(bool value)		{	this->ui->ShowBtn->setEnabled(value);		}

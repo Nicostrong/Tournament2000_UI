@@ -17,6 +17,18 @@ class	MenuSide : public QWidget
         explicit MenuSide(QWidget *parent = nullptr);
         ~MenuSide();
 
+		void							setActivePlayersBtn(bool value);
+		void							setActiveTeamsBtn(bool value);
+		void							setActivePoolsBtn(bool value);
+		void							setActiveSixteenthBtn(bool value);
+		void							setActiveEighthBtn(bool value);
+		void							setActiveQuarterBtn(bool value);
+		void							setActiveSemiBtn(bool value);
+		void							setActiveThirdBtn(bool value);
+		void							setActiveFinalBtn(bool value);
+		void							setActiveExportBtn(bool value);
+		void							setActiveShowBtn(bool value);
+
     signals:
 
 		void							goToSettings();

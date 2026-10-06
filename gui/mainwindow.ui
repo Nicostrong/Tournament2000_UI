@@ -95,7 +95,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="resources.qrc">:/Tournament2000.png</pixmap>
+           <pixmap>:/Tournament2000.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -104,6 +104,7 @@
         </item>
        </layout>
       </widget>
+      <widget class="SettingsPage" name="settingsPage"/>
      </widget>
     </item>
    </layout>
@@ -127,9 +128,13 @@
    <header>gui/menuside.h</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>SettingsPage</class>
+   <extends>QWidget</extends>
+   <header>gui/settingspage.h</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

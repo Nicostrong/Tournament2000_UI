@@ -227,7 +227,7 @@ void				PhaseManager::generateEighths(cvpPool pools)
 	if (this->_eighth || !this->_hasEighth)
 		return;
 
-	auto phase = std::make_unique<Phase>("1/8 de Finale", this->_settings.getNbSetPlayedHeigth());
+	auto phase = std::make_unique<Phase>("1/8 de Finale", this->_settings.getNbSetPlayedEigth());
 
 	if (this->_hasSixteenth)
 	{
