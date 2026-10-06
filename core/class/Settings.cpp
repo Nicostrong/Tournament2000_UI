@@ -32,7 +32,7 @@ using				cInt			=	const int;
 Settings::Settings()
 	: _name(TOURNAMENTNAME), _nbPlayers(NBPLAYER), _nbPlayerByPool(NBPLAYERPERPOOL), _nbPools(NBPOOL),
 	_nbBadmintonCourt(NBTERRAIN), _scoreMin(SCOREMIN), _scoreMax(SCOREMAX), _diffPointsToWin(ECART),
-	_nbSetPlayedPools(NBSETPOOL), _nbSetPlayedSixteenth(NBSETSIXTEENTH), _nbSetPlayedHeigth(NBSETHEIGTH),
+	_nbSetPlayedPools(NBSETPOOL), _nbSetPlayedSixteenth(NBSETSIXTEENTH), _nbSetPlayedEigth(NBSETEIGTH),
 	_nbSetPlayedQuarters(NBSETQUARTER), _nbSetPlayedSemis(NBSETSEMI), _nbSetPlayedFinal(NBSETFINAL),
 	_nbSetPlayedThirdPlace(NBSETTHIRD), _isMixed(ISMIXED), _isDouble(ISDOUBLE),
 	_allowMultiTeamPlayers(PLAYERMULTITEAM), _isThirdPlaceMatch(PLAYTHIRDPLACE), _isValid(ISVALIDE),
@@ -52,7 +52,7 @@ int					Settings::getScoreMax() const				{	return (this->_scoreMax);				}
 int					Settings::getDiffPointsToWin() const		{	return (this->_diffPointsToWin);		}
 int					Settings::getNbSetPlayedPools() const		{	return (this->_nbSetPlayedPools);		}
 int					Settings::getNbSetPlayedSixteenth() const	{	return (this->_nbSetPlayedSixteenth);	}
-int					Settings::getNbSetPlayedHeigth() const		{	return (this->_nbSetPlayedHeigth);		}
+int					Settings::getNbSetPlayedEigth() const		{	return (this->_nbSetPlayedEigth);		}
 int					Settings::getNbSetPlayedQuarters() const	{	return (this->_nbSetPlayedQuarters);	}
 int					Settings::getNbSetPlayedSemis() const		{	return (this->_nbSetPlayedSemis);		}
 int					Settings::getNbSetPlayedFinal() const		{	return (this->_nbSetPlayedFinal);		}
@@ -78,7 +78,7 @@ void				Settings::setScoreMax(cInt value)				{	this->_scoreMax = value;				}
 void				Settings::setDiffPointsToWin(cInt value)		{	this->_diffPointsToWin = value;			}
 void				Settings::setNbSetPlayedPools(cInt value)		{	this->_nbSetPlayedPools = value;		}
 void				Settings::setNbSetPlayedSixteenth(cInt value)	{	this->_nbSetPlayedSixteenth = value;	}
-void				Settings::setNbSetPlayedHeigth(cInt value)		{	this->_nbSetPlayedHeigth = value;		}
+void				Settings::setNbSetPlayedEigth(cInt value)		{	this->_nbSetPlayedEigth = value;		}
 void				Settings::setNbSetPlayedQuarters(cInt value)	{	this->_nbSetPlayedQuarters = value;		}
 void				Settings::setNbSetPlayedSemis(cInt value)		{	this->_nbSetPlayedSemis = value;		}
 void				Settings::setNbSetPlayedFinal(cInt value)		{	this->_nbSetPlayedFinal = value;		}

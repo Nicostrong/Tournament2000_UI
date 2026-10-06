@@ -28,6 +28,13 @@
     </widget>
    </item>
    <item>
+    <widget class="QPushButton" name="PlayersBtn">
+     <property name="text">
+      <string>Players</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QPushButton" name="TeamsBtn">
      <property name="text">
       <string>Teams</string>
@@ -45,13 +52,6 @@
     <widget class="QPushButton" name="ShowBtn">
      <property name="text">
       <string>Show</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="PlayersBtn">
-     <property name="text">
-      <string>Players</string>
      </property>
     </widget>
    </item>

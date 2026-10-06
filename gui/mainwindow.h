@@ -3,6 +3,8 @@
 # include <QMainWindow>
 # include <csignal>
 
+# include "includes/class/Settings.hpp"
+
 QT_BEGIN_NAMESPACE
 
 namespace	Ui
@@ -21,10 +23,17 @@ class	MainWindow : public QMainWindow
 		MainWindow(QWidget *parent = nullptr);
 		~MainWindow();
 
+	private slots:
+
+		void				onSettingsValidated(const Settings& newSettings);
+		void				onSettingsCancelled();
+
 	private:
 
 		Ui::MainWindow		*ui;
+		Settings			settings;
 
 		void				connectMenuSide();
+		void				connectSettingsPage();
 
 };

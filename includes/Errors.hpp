@@ -14,7 +14,7 @@
 # define E_DIFFSCORE				"La différence de points doit être positive."
 # define E_NBSETPOOL				"Nombre de sets en poules invalide."
 # define E_NBSETSIXTEENTH			"Nombre de sets en 1/16 invalide."
-# define E_NBSETHEIGHT				"Nombre de sets en 1/8 invalide."
+# define E_NBSETEIGHT				"Nombre de sets en 1/8 invalide."
 # define E_NBSETQUARTER				"Nombre de sets en quarts invalide."
 # define E_NBSETSEMI				"Nombre de sets en demi-finales invalide."
 # define E_NBSETFINAL				"Nombre de sets en finale invalide."

@@ -62,6 +62,8 @@ set(CORE_SOURCES
 	includes/utils/PrintUtils.hpp
 	includes/utils/SettingsChecker.hpp
 	includes/utils/TablePrinter.hpp
+	includes/Constantes.hpp
+	includes/Errors.hpp
 )
 
 set(GUI_SOURCES
@@ -72,6 +74,9 @@ set(GUI_SOURCES
 	gui/menuside.cpp
 	gui/menuside.h
 	gui/menuside.ui
+	gui/settingspage.h
+	gui/settingspage.cpp
+	gui/settingspage.ui
 )
 
 set(PROJECT_SOURCES
@@ -82,10 +87,7 @@ set(PROJECT_SOURCES
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-	qt_add_executable(Tournament2000QT
-		MANUAL_FINALIZATION
-		${PROJECT_SOURCES}
-	)
+	qt_add_executable(Tournament2000QT MANUAL_FINALIZATION ${PROJECT_SOURCES})
 # Define target properties for Android with Qt 6 as:
 #	set_property(TARGET Tournament2000QT APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #					${CMAKE_CURRENT_SOURCE_DIR}/android)
@@ -94,15 +96,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 	qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 else()
 	if(ANDROID)
-		add_library(Tournament2000QT SHARED
-			${PROJECT_SOURCES}
-		)
+		add_library(Tournament2000QT SHARED ${PROJECT_SOURCES})
 # Define properties for Android with Qt 5 after find_package() calls as:
 #	set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
 	else()
-		add_executable(Tournament2000QT
-			${PROJECT_SOURCES}
-		)
+		add_executable(Tournament2000QT ${PROJECT_SOURCES})
 	endif()
 
 	qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
