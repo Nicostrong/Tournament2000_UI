@@ -77,6 +77,9 @@ set(GUI_SOURCES
 	gui/settingspage.h
 	gui/settingspage.cpp
 	gui/settingspage.ui
+	gui/playerspage.h
+	gui/playerspage.cpp
+	gui/playerspage.ui
 )
 
 set(PROJECT_SOURCES
