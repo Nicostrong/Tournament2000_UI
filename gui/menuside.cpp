@@ -3,48 +3,26 @@
 
 #include <QPushButton>
 
+/****************************************************************************************************/
+/*	CONSTRUCTOR																						*/
+/****************************************************************************************************/
+
 MenuSide::MenuSide(QWidget *parent): QWidget(parent), ui(std::make_unique<Ui::MenuSide>())
 {
-    ui->setupUi(this);
+	this->ui->setupUi(this);
 
 	initMenuSide();
-
-    connect(ui->SettingsBtn, &QPushButton::clicked, this, &MenuSide::goToSettings);
-    connect(ui->PlayersBtn, &QPushButton::clicked, this, &MenuSide::goToPlayers);
-    connect(ui->TeamsBtn, &QPushButton::clicked, this, &MenuSide::goToTeams);
-    connect(ui->PoolsBtn, &QPushButton::clicked, this, &MenuSide::goToPools);
-    connect(ui->SixteenthBtn, &QPushButton::clicked, this, &MenuSide::goToSixteenth);
-    connect(ui->EighthBtn, &QPushButton::clicked, this, &MenuSide::goToEighth);
-    connect(ui->QuarterBtn, &QPushButton::clicked, this, &MenuSide::goToQuarter);
-    connect(ui->SemiBtn, &QPushButton::clicked, this, &MenuSide::goToSemi);
-    connect(ui->ThirdBtn, &QPushButton::clicked, this, &MenuSide::goToThird);
-    connect(ui->FinalBtn, &QPushButton::clicked, this, &MenuSide::goToFinal);
-    connect(ui->ExportBtn, &QPushButton::clicked, this, &MenuSide::goToExport);
-    connect(ui->ShowBtn, &QPushButton::clicked, this, &MenuSide::goToShow);
-    connect(ui->QuitBtn, &QPushButton::clicked, this, &MenuSide::goToQuit);
+	connectMenuSide();
 
 }
 
 MenuSide::~MenuSide() = default;
 
+/****************************************************************************************************/
+/*	SETTER																							*/
+/****************************************************************************************************/
 
-void		MenuSide::initMenuSide()
-{
-	ui->SettingsBtn->setEnabled(true);
-	ui->PlayersBtn->setEnabled(false);
-	ui->TeamsBtn->setEnabled(false);
-	ui->PoolsBtn->setEnabled(false);
-	ui->SixteenthBtn->setEnabled(false);
-	ui->EighthBtn->setEnabled(false);
-	ui->QuarterBtn->setEnabled(false);
-	ui->SemiBtn->setEnabled(false);
-	ui->ThirdBtn->setEnabled(false);
-	ui->FinalBtn->setEnabled(false);
-	ui->ExportBtn->setEnabled(false);
-	ui->ShowBtn->setEnabled(false);
-	ui->QuitBtn->setEnabled(true);
-}
-
+void		MenuSide::setActiveSettingsBtn(bool value)	{	this->ui->SettingsBtn->setEnabled(value);	}
 void		MenuSide::setActivePlayersBtn(bool value)	{	this->ui->PlayersBtn->setEnabled(value);	}
 void		MenuSide::setActiveTeamsBtn(bool value)		{	this->ui->TeamsBtn->setEnabled(value);		}
 void		MenuSide::setActivePoolsBtn(bool value)		{	this->ui->PoolsBtn->setEnabled(value);		}
@@ -56,3 +34,54 @@ void		MenuSide::setActiveThirdBtn(bool value)		{	this->ui->ThirdBtn->setEnabled(
 void		MenuSide::setActiveFinalBtn(bool value)		{	this->ui->FinalBtn->setEnabled(value);		}
 void		MenuSide::setActiveExportBtn(bool value)	{	this->ui->ExportBtn->setEnabled(value);		}
 void		MenuSide::setActiveShowBtn(bool value)		{	this->ui->ShowBtn->setEnabled(value);		}
+
+/****************************************************************************************************/
+/*	PRIVATE METHODES																				*/
+/****************************************************************************************************/
+
+void		MenuSide::initMenuSide()
+{
+	this->ui->SettingsBtn->setEnabled(true);
+	this->ui->PlayersBtn->setEnabled(false);
+	this->ui->TeamsBtn->setEnabled(false);
+	this->ui->PoolsBtn->setEnabled(false);
+	this->ui->SixteenthBtn->setEnabled(false);
+	this->ui->EighthBtn->setEnabled(false);
+	this->ui->QuarterBtn->setEnabled(false);
+	this->ui->SemiBtn->setEnabled(false);
+	this->ui->ThirdBtn->setEnabled(false);
+	this->ui->FinalBtn->setEnabled(false);
+	this->ui->ExportBtn->setEnabled(false);
+	this->ui->ShowBtn->setEnabled(false);
+	this->ui->QuitBtn->setEnabled(true);
+}
+
+/****************************************************************************************************/
+/*	SIGNAUX																							*/
+/****************************************************************************************************/
+
+void		MenuSide::connectMenuSide()
+{
+	connect(this->ui->SettingsBtn, &QPushButton::clicked, this, &MenuSide::goToSettings);
+	connect(this->ui->PlayersBtn, &QPushButton::clicked, this, &MenuSide::goToPlayers);
+	connect(this->ui->TeamsBtn, &QPushButton::clicked, this, &MenuSide::goToTeams);
+	connect(this->ui->PoolsBtn, &QPushButton::clicked, this, &MenuSide::goToPools);
+	connect(this->ui->SixteenthBtn, &QPushButton::clicked, this, &MenuSide::goToSixteenth);
+	connect(this->ui->EighthBtn, &QPushButton::clicked, this, &MenuSide::goToEighth);
+	connect(this->ui->QuarterBtn, &QPushButton::clicked, this, &MenuSide::goToQuarter);
+	connect(this->ui->SemiBtn, &QPushButton::clicked, this, &MenuSide::goToSemi);
+	connect(this->ui->ThirdBtn, &QPushButton::clicked, this, &MenuSide::goToThird);
+	connect(this->ui->FinalBtn, &QPushButton::clicked, this, &MenuSide::goToFinal);
+	connect(this->ui->ExportBtn, &QPushButton::clicked, this, &MenuSide::goToExport);
+	connect(this->ui->ShowBtn, &QPushButton::clicked, this, &MenuSide::goToShow);
+	connect(this->ui->QuitBtn, &QPushButton::clicked, this, &MenuSide::goToQuit);
+}
+
+/****************************************************************************************************/
+/*	EVENTS																							*/
+/****************************************************************************************************/
+
+/****************************************************************************************************/
+/*	PUBLIC METHODES																					*/
+/****************************************************************************************************/
+

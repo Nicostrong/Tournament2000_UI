@@ -44,7 +44,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QStackedWidget" name="stackedWidget">
+     <widget class="QStackedWidget" name="PagesZone">
       <property name="minimumSize">
        <size>
         <width>600</width>
@@ -58,7 +58,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="mainPage">
        <property name="minimumSize">
@@ -95,7 +95,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>:/Tournament2000.png</pixmap>
+           <pixmap resource="resources.qrc">:/Tournament2000.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -131,10 +131,12 @@
   <customwidget>
    <class>SettingsPage</class>
    <extends>QWidget</extends>
-   <header>gui/settingspage.h</header>
+   <header>gui/pages/settings/settingspage.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

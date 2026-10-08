@@ -74,12 +74,17 @@ set(GUI_SOURCES
 	gui/menuside.cpp
 	gui/menuside.h
 	gui/menuside.ui
-	gui/settingspage.h
-	gui/settingspage.cpp
-	gui/settingspage.ui
-	gui/playerspage.h
-	gui/playerspage.cpp
-	gui/playerspage.ui
+
+	gui/pages/settings/settingspage.h
+	gui/pages/settings/settingspage.cpp
+	gui/pages/settings/settingspage.ui
+
+	gui/pages/players/playerspage.h
+	gui/pages/players/playerspage.cpp
+	gui/pages/players/playerspage.ui
+	gui/pages/players/menuplayers.h
+	gui/pages/players/menuplayers.cpp
+	gui/pages/players/menuplayers.ui
 )
 
 set(PROJECT_SOURCES

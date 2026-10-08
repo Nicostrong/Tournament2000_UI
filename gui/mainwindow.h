@@ -2,8 +2,10 @@
 
 # include <QMainWindow>
 # include <csignal>
+# include <memory>
 
 # include "includes/class/Settings.hpp"
+# include "includes/manager/PlayerManager.hpp"
 
 QT_BEGIN_NAMESPACE
 
@@ -25,15 +27,16 @@ class	MainWindow : public QMainWindow
 
 	private slots:
 
-		void				onSettingsValidated(const Settings& newSettings);
-		void				onSettingsCancelled();
+		void								onSettingsValidated(Settings *settings);
+		void								onSettingsCancelled();
 
 	private:
 
-		Ui::MainWindow		*ui;
-		Settings			settings;
+		std::unique_ptr<Ui::MainWindow>		ui;
+		std::unique_ptr<Settings>			settings;
+		std::unique_ptr<PlayerManager>		playerManager;
 
-		void				connectMenuSide();
-		void				connectSettingsPage();
+		void								connectMenuSide();
+		void								connectSettingsPage();
 
 };

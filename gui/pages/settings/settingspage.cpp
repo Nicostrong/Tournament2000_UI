@@ -1,5 +1,5 @@
-#include "settingspage.h"
-#include "gui/ui_settingspage.h"
+#include "gui/pages/settings/settingspage.h"
+#include "gui/pages/settings/ui_settingspage.h"
 
 #include "includes/class/Settings.hpp"
 #include "includes/utils/SettingsChecker.hpp"
@@ -10,7 +10,7 @@
 /*	CONSTRUCTOR																						*/
 /****************************************************************************************************/
 
-SettingsPage::SettingsPage(QWidget *parent): QWidget(parent), ui(new Ui::SettingsPage)
+SettingsPage::SettingsPage(QWidget *parent): QWidget(parent), ui(std::make_unique<Ui::SettingsPage>())
 {
 	ui->setupUi(this);
 
@@ -20,10 +20,7 @@ SettingsPage::SettingsPage(QWidget *parent): QWidget(parent), ui(new Ui::Setting
 
 }
 
-SettingsPage::~SettingsPage()
-{
-	delete ui;
-}
+SettingsPage::~SettingsPage() = default;
 
 /****************************************************************************************************/
 /*	PRIVATE METHODES																				*/
@@ -152,12 +149,16 @@ void		SettingsPage::setDefaultValues()
  */
 void		SettingsPage::connectSettingsPage()
 {
-	connect(this->ui->SimpleRadio, &QRadioButton::toggled, this, &SettingsPage::addNbPlayerLst);
-	connect(this->ui->ValidateBtn, &QPushButton::clicked, this, &SettingsPage::onValidateClicked);
-	connect(this->ui->CancelBtn, &QPushButton::clicked, this, &SettingsPage::onCancelClicked);
-	connect(this->ui->ResetBtn, &QPushButton::clicked, this, &SettingsPage::onResetClicked);
-	connect(this->ui->HasThirdPlaceCheck, &QCheckBox::checkStateChanged, this, &SettingsPage::onCheckHasThirdPlaceMatch);
+	connect(this->ui->SimpleRadio,			&QRadioButton::toggled,			this, &SettingsPage::addNbPlayerLst);
+	connect(this->ui->ValidateBtn,			&QPushButton::clicked,			this, &SettingsPage::onValidateClicked);
+	connect(this->ui->CancelBtn,			&QPushButton::clicked,			this, &SettingsPage::onCancelClicked);
+	connect(this->ui->ResetBtn,				&QPushButton::clicked,			this, &SettingsPage::onResetClicked);
+	connect(this->ui->HasThirdPlaceCheck,	&QCheckBox::checkStateChanged,	this, &SettingsPage::onCheckHasThirdPlaceMatch);
 }
+
+/****************************************************************************************************/
+/*	EVENTS																							*/
+/****************************************************************************************************/
 
 /**
  * Active/desactive le setting du match pour la 3eme place
@@ -169,11 +170,6 @@ void		SettingsPage::onCheckHasThirdPlaceMatch()
 	this->ui->NbSetThirdBox->setEnabled(hasThirdPlace);
 	this->ui->NbSetThirdLabel->setEnabled(hasThirdPlace);
 }
-
-/****************************************************************************************************/
-/*	EVENTS																							*/
-/****************************************************************************************************/
-
 
 /**
  * Gestion du reset
@@ -215,46 +211,46 @@ void		SettingsPage::onValidateClicked()
 	else if (this->ui->FemmeRadio->isChecked())
 		selectedGender = Gender::FEMALE;
 
-	Settings tempSettings;
+	auto tempSettings = std::make_unique<Settings>();;
 
-	tempSettings.setName(tournamentName.toStdString());
-	tempSettings.setIsDouble(this->ui->DoubleRadio->isChecked());
-	tempSettings.setTournamentGender(selectedGender);
+	tempSettings->setName(tournamentName.toStdString());
+	tempSettings->setIsDouble(this->ui->DoubleRadio->isChecked());
+	tempSettings->setTournamentGender(selectedGender);
 
-	tempSettings.setNbPlayers(this->ui->NbPlayersLst->currentText().toInt());
-	tempSettings.setNbPools(this->ui->NbPoolsLst->currentText().toInt());
-	tempSettings.setNbPlayerByPool(this->ui->NbPlayersPerPoolsLst->currentText().toInt());
+	tempSettings->setNbPlayers(this->ui->NbPlayersLst->currentText().toInt());
+	tempSettings->setNbPools(this->ui->NbPoolsLst->currentText().toInt());
+	tempSettings->setNbPlayerByPool(this->ui->NbPlayersPerPoolsLst->currentText().toInt());
 
-	tempSettings.setAllowMultiTeamPlayers(this->ui->MultiPlayerTeamCheck->isChecked());
-	tempSettings.setIsThirdPlaceMatch(this->ui->HasThirdPlaceCheck->isChecked());
+	tempSettings->setAllowMultiTeamPlayers(this->ui->MultiPlayerTeamCheck->isChecked());
+	tempSettings->setIsThirdPlaceMatch(this->ui->HasThirdPlaceCheck->isChecked());
 
-	tempSettings.setNbBadmintonCourt(NBTERRAIN);
+	tempSettings->setNbBadmintonCourt(NBTERRAIN);
 
-	tempSettings.setScoreMin(this->ui->WinScoreLst->value());
-	tempSettings.setScoreMax(this->ui->ScoreMaxLst->value());
-	tempSettings.setDiffPointsToWin(this->ui->DeltaScoreLst->value());
+	tempSettings->setScoreMin(this->ui->WinScoreLst->value());
+	tempSettings->setScoreMax(this->ui->ScoreMaxLst->value());
+	tempSettings->setDiffPointsToWin(this->ui->DeltaScoreLst->value());
 
-	tempSettings.setNbSetPlayedPools(this->ui->NbSetPoolsBox->value());
-	tempSettings.setNbSetPlayedSixteenth(this->ui->NbSetSixteenthBox->value());
-	tempSettings.setNbSetPlayedEigth(this->ui->NbSetEighthBox->value());
-	tempSettings.setNbSetPlayedQuarters(this->ui->NbSetQuarterBox->value());
-	tempSettings.setNbSetPlayedSemis(this->ui->NbSetSemiBox->value());
-	tempSettings.setNbSetPlayedFinal(this->ui->NbSetFinalBox->value());
+	tempSettings->setNbSetPlayedPools(this->ui->NbSetPoolsBox->value());
+	tempSettings->setNbSetPlayedSixteenth(this->ui->NbSetSixteenthBox->value());
+	tempSettings->setNbSetPlayedEigth(this->ui->NbSetEighthBox->value());
+	tempSettings->setNbSetPlayedQuarters(this->ui->NbSetQuarterBox->value());
+	tempSettings->setNbSetPlayedSemis(this->ui->NbSetSemiBox->value());
+	tempSettings->setNbSetPlayedFinal(this->ui->NbSetFinalBox->value());
 
-	if (tempSettings.getIsThirdPlaceMatch())
-		tempSettings.setNbSetPlayedThirdPlace(this->ui->NbSetThirdBox->value());
+	if (tempSettings->getIsThirdPlaceMatch())
+		tempSettings->setNbSetPlayedThirdPlace(this->ui->NbSetThirdBox->value());
 	else
-		tempSettings.setNbSetPlayedThirdPlace(0);
+		tempSettings->setNbSetPlayedThirdPlace(0);
 
 	vString errors;
 	SettingsChecker checker;
 
-	if (checker.isValid(tempSettings, errors))
+	if (checker.isValid(*tempSettings, errors))
 	{
 		this->ui->CommentsAndErrorsLabel->setStyleSheet("color: green;");
 		this->ui->CommentsAndErrorsLabel->setText("Paramètres validés avec succès !");
 
-		emit settingsValidated(tempSettings);
+		emit settingsValidated(tempSettings.release());
 	}
 	else
 	{

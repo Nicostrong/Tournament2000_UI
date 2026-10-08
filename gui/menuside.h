@@ -17,6 +17,7 @@ class	MenuSide : public QWidget
         explicit MenuSide(QWidget *parent = nullptr);
         ~MenuSide();
 
+		void							setActiveSettingsBtn(bool value);
 		void							setActivePlayersBtn(bool value);
 		void							setActiveTeamsBtn(bool value);
 		void							setActivePoolsBtn(bool value);
@@ -50,5 +51,6 @@ class	MenuSide : public QWidget
 		std::unique_ptr<Ui::MenuSide>	ui;
 
 		void							initMenuSide();
+		void							connectMenuSide();
 };
 
