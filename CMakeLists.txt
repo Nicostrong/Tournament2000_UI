@@ -85,6 +85,21 @@ set(GUI_SOURCES
 	gui/pages/players/menuplayers.h
 	gui/pages/players/menuplayers.cpp
 	gui/pages/players/menuplayers.ui
+	gui/pages/players/addplayer.h
+	gui/pages/players/addplayer.cpp
+	gui/pages/players/addplayer.ui
+	gui/pages/players/modifyplayer.h
+	gui/pages/players/modifyplayer.cpp
+	gui/pages/players/modifyplayer.ui
+	gui/pages/players/deleteplayer.h
+	gui/pages/players/deleteplayer.cpp
+	gui/pages/players/deleteplayer.ui
+	gui/pages/players/showplayer.h
+	gui/pages/players/showplayer.cpp
+	gui/pages/players/showplayer.ui
+	gui/pages/players/showplayerslist.h
+	gui/pages/players/showplayerslist.cpp
+	gui/pages/players/showplayerslist.ui
 )
 
 set(PROJECT_SOURCES

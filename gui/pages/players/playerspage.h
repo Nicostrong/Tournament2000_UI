@@ -21,5 +21,6 @@ class	PlayersPage : public QWidget
 	private:
 
 		std::unique_ptr<Ui::PlayersPage>	ui;
+
 };
 

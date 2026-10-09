@@ -9,7 +9,8 @@
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(std::make_unique<Ui::MainWindow>())
 {
-    ui->setupUi(this);
+	this->ui->setupUi(this);
+	this->ui->PagesZone->setCurrentIndex(0);
 
 	connectMenuSide();
 	connectSettingsPage();
